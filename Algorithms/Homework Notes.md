@@ -1,0 +1,18 @@
+# TODO:
+- [ ] Create Git Repo for Algorithms
+- [ ] LinkedList Class
+	- [ ] Deconstructor function
+		- [ ] Double linked
+	- [ ] Insert function
+		- [ ] Double linked
+	- [ ] Find function
+		- [ ] Double linked
+	- [ ] Remove function
+		- [ ] Double linked
+	- [ ] Size function
+		- [ ] Double linked
+- [ ] Queue
+	- [ ] Deconstructor
+	- [ ] Push
+	- [ ] Pop
+	- [ ] Empty
