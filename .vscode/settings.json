@@ -1,0 +1,37 @@
+{
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "external",
+  "latex-workshop.view.pdf.external.viewer.command": "zathura",
+  "latex-workshop.view.pdf.external.viewer.args": [
+    "--synctex-forward=%LINE%:0:%TEX%",
+    "%PDF%"
+  ],
+  "latex-workshop.view.pdf.external.synctex.command": "zathura",
+  "latex-workshop.view.pdf.external.synctex.args": [
+    "--synctex-forward=%LINE%:1:%TEX%",
+    "%PDF%"
+  ],
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.nav",
+    "*.synctex.gz"
+  ]
+}
