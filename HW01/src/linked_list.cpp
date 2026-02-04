@@ -1,4 +1,4 @@
-#include "./../include/linked_list.hpp"
+#include <linked_list.hpp>
 #include <exception>
 
 template<class T>
@@ -58,7 +58,7 @@ LinkedListNode<T>* LinkedList<T>::insert(T value) {
         {
             LinkedListNode<T>* newNode = new LinkedListNode<T>(value);
             current->next = newNode;
-            newNode->prev = current; //
+            newNode->prev = current;
             return newNode;
         }
 
@@ -66,6 +66,7 @@ LinkedListNode<T>* LinkedList<T>::insert(T value) {
         current = current->next;
     }
 
+    // Redundant code to ensure return statement
     LinkedListNode<T>* newNode = new LinkedListNode<T>(value);
     current->next = newNode;
     newNode->prev = current;

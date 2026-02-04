@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "./../include/linked_list.hpp" 
-#include "./../include/graph.hpp" 
+#include <linked_list.hpp>
+#include <graph.hpp>
 #include <string>
 #include <map>
 #include <fstream>

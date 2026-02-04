@@ -1,4 +1,6 @@
-#include "./../include/graph.hpp"
+#include <cstddef>
+#include <graph.hpp>
+#include <iterator>
 
 template<class T>
 QueueNode<T>::QueueNode(T value, QueueNode<T> *next, QueueNode<T> *prev) {
@@ -19,16 +21,22 @@ Queue<T>::Queue() {
 
 template<class T>
 Queue<T>::~Queue() {
-    // YOUR CODE HERE 
+    QueueNode<T>* current = this->head;
 
-    // END OF YOUR CODE HERE
+    while(current != NULL)
+    {
+        QueueNode<T>* next = current->next;
+        delete current;
+        current = next;
+    }
+
+    this->head = NULL;
+    this->tail = NULL;
 }
 
 template<class T>
 bool Queue<T>::empty() {
-    // YOUR CODE HERE
-
-    // END OF YOUR CODE HERE
+    return (this->head == NULL && this->tail == NULL);
 }
 
 template<class T>
@@ -37,18 +45,35 @@ T Queue<T>::pop() {
         throw std::out_of_range("Queue is empty");
     }
     T value = this->head->value;
-    // YOUR CODE HERE
 
-    // END OF YOUR CODE HERE
+    QueueNode<T>* headToDelete = this->head;
+    this->head = this->head->next;
+
+    // Accounting for a newly empty queue
+    if(this->head == NULL)
+    {
+        this->tail = NULL;
+    } else {
+        this->head->prev = NULL;
+    }
+
+    delete headToDelete;
+
     return value;
 }
 
 template<class T>
 void Queue<T>::push(T value) {
-    QueueNode<T> *p = new QueueNode<T>(value, NULL, NULL);
-    // YOUR CODE HERE
+    QueueNode<T> *p = new QueueNode<T>(value, NULL, this->tail); // Why doesn't the third paramet point to the current tail?
 
-    // END OF YOUR CODE HERE
+    if(this->empty())
+    {
+        this->head = p;
+        this->tail = p;
+    } else {
+        this->tail->next = p;
+        this->tail = p;
+    }
 }
 
 template class Queue<int>;

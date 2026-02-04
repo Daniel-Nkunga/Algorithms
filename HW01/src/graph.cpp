@@ -1,4 +1,4 @@
-#include "./../include/graph.hpp"
+#include <graph.hpp>
 
 Graph::Graph(int n) {
     this->n = n;

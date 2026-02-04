@@ -24,7 +24,7 @@ compile: main
 
 
 main: ${OBJ_DIR}/linked_list.o ${OBJ_DIR}/graph.o ${OBJ_DIR}/queue.o ${OBJ_DIR}/main.o
-	${CXX} ${CFLAGS} $^ ${LDFLAGS} -o bin/$@ 
+	${CXX} ${CFLAGS} $^ ${LDFLAGS} -o bin/$@
 
 
 ${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp
