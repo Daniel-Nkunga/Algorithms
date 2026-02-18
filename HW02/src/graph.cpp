@@ -24,7 +24,7 @@ bool Graph::isVisited(int u) {
 void Graph::setVisited(int u) {
     this->visited[u] = true;
 }
-        
+
 int Graph::trace(int u) {
     return this->traces[u];
 }
