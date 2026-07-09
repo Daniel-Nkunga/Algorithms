@@ -5,16 +5,25 @@
 
 std::vector<Edge> constructMSTKruskal(Graph &G)
 {
-    std::vector<Edge> edges = G.exportEdges(); // Graph's edges
-    // DisjointSet djs(G.n);
-    // Use Disjoint Set to check whether two vertices are on the same set
-    // Usage: Check djs.isOnSameSet(u, v); Check is u and v is on the same set or not
-    //              djs.join(u, v); Join sets of u and v into the same set
+    std::vector<Edge> edges = G.exportEdges();
+    int n = G.getN();
+
+    // Step 1: Sort all edges by weight ascending using merge sort
+    msort(edges, 0, edges.size());
 
     std::vector<Edge> mst;
-    DisjointSet djs(G.getN());
-    // YOUR CODE HERE
+    DisjointSet djs(n);
 
+    // Step 2: Add the cheapest edge that does not form a cycle
+    for (const Edge &e : edges) {
+        if (mst.size() == n - 1)
+            break; // MST is complete
+
+        if (!djs.isOnSameSet(e.u, e.v)) {
+            mst.push_back(e);
+            djs.join(e.u, e.v);
+        }
+    }
 
     return mst;
 }
